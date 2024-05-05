@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <Seo title="Coders Baban" description="Coders Baban" />
-      <h1>Hello world</h1>
+      <h1>Baban le big boss du game</h1>
     </>
   );
 }
