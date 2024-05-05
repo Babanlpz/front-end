@@ -1,14 +1,10 @@
-import Head from "next/head";
+import { Seo } from "@/ui/components/seo";
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Coders Baban</title>
-        <meta name="description" content="Coders Baban" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Seo title="Coders Baban" description="Coders Baban" />
+      <h1>Hello world</h1>
     </>
   );
 }
