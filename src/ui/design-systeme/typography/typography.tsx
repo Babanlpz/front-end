@@ -81,18 +81,18 @@ export const Typography = ({
 
   switch (theme) {
     case "black": // Default
-      colorStyles = "";
+      colorStyles = "text-gray";
       break;
     case "gray":
-      colorStyles = "";
+      colorStyles = "text-gray-700";
       break;
     case "white":
-      colorStyles = "";
+      colorStyles = "text-white";
     case "primary":
-      colorStyles = "";
+      colorStyles = "text-primary";
       break;
     case "secondary":
-      colorStyles = "";
+      colorStyles = "text-secondary";
       break;
     case "tertiary":
       colorStyles = "";
