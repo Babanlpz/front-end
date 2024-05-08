@@ -1,6 +1,7 @@
 import { Seo } from "@/ui/components/seo";
 import { Button } from "@/ui/design-systeme/button/button";
 import { Typography } from "@/ui/design-systeme/typography/typography";
+import { RiAncientGateFill } from "react-icons/ri";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <Button size="small" variant="disabled" disabled>
           Disabled
         </Button>
+        <Button size="small" variant="ico" icon={{ icon: RiAncientGateFill }} />
       </div>
       <div className="flex items-center gap-4 p-10 ">
         <Button>Accent</Button>
@@ -26,6 +28,7 @@ export default function Home() {
         <Button variant="disabled" disabled>
           Disabled
         </Button>
+        <Button variant="ico" icon={{ icon: RiAncientGateFill }} />
       </div>
       <div className="flex items-center gap-4 p-10 ">
         <Button size="large">Accent</Button>
@@ -38,6 +41,19 @@ export default function Home() {
         <Button size="large" variant="disabled" disabled>
           Disabled
         </Button>
+        <Button
+          size="large"
+          variant="ico"
+          icon={{ icon: RiAncientGateFill }}
+          iconTheme="secondary"
+        />
+        <Button
+          size="large"
+          variant="ico"
+          icon={{ icon: RiAncientGateFill }}
+          iconTheme="gray"
+        />
+        <Button size="large" variant="ico" icon={{ icon: RiAncientGateFill }} />
       </div>
 
       <Typography variant="display" component="h1">
