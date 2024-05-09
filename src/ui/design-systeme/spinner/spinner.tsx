@@ -32,29 +32,25 @@ export const Spinner = ({ size = "medium", variant = "primary" }: Props) => {
   return (
     <>
       <svg
-        className={clsx(sizeStyles, variantStyles)}
-        width="24"
-        height="24"
+        className={clsx(sizeStyles, variantStyles, "animate-spin")}
+        fill="none"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g>
-          <circle cx="12" cy="2.5" r="1.5" opacity=".14" />
-          <circle cx="16.75" cy="3.77" r="1.5" opacity=".29" />
-          <circle cx="20.23" cy="7.25" r="1.5" opacity=".43" />
-          <circle cx="21.50" cy="12.00" r="1.5" opacity=".57" />
-          <circle cx="20.23" cy="16.75" r="1.5" opacity=".71" />
-          <circle cx="16.75" cy="20.23" r="1.5" opacity=".86" />
-          <circle cx="12" cy="21.5" r="1.5" />
-          <animateTransform
-            attributeName="transform"
-            type="rotate"
-            calcMode="discrete"
-            dur="0.75s"
-            values="0 12 12;30 12 12;60 12 12;90 12 12;120 12 12;150 12 12;180 12 12;210 12 12;240 12 12;270 12 12;300 12 12;330 12 12;360 12 12"
-            repeatCount="indefinite"
-          />
-        </g>
+        <circle
+          // d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"
+          className="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="4"
+        />
+        <path
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          fill="currentColor"
+          className="opacity-75"
+        ></path>
       </svg>
     </>
   );

@@ -15,6 +15,35 @@ export default function Home() {
 
       <div className="flex items-center gap-4 p-10 ">
         <Button
+          isLoading
+          size="small"
+          icon={{ icon: RiAncientGateFill }}
+          iconPosition="left"
+        >
+          Accent
+        </Button>
+        <Button isLoading size="small">
+          Accent
+        </Button>
+        <Button isLoading size="small" variant="secondary">
+          Secondary
+        </Button>
+        <Button isLoading size="small" variant="outline">
+          Outline
+        </Button>
+        <Button isLoading size="small" variant="disabled" disabled>
+          Disabled
+        </Button>
+        <Button
+          isLoading
+          size="small"
+          variant="ico"
+          icon={{ icon: RiAncientGateFill }}
+        />
+      </div>
+
+      <div className="flex items-center gap-4 p-10 ">
+        <Button
           size="small"
           icon={{ icon: RiAncientGateFill }}
           iconPosition="left"
