@@ -1,5 +1,6 @@
 import { Seo } from "@/ui/components/seo";
 import { Button } from "@/ui/design-systeme/button/button";
+import { Spinner } from "@/ui/design-systeme/spinner/spinner";
 import { Typography } from "@/ui/design-systeme/typography/typography";
 import { RiAncientGateFill } from "react-icons/ri";
 
@@ -7,6 +8,10 @@ export default function Home() {
   return (
     <>
       <Seo title="Coders Baban" description="Coders Baban" />
+
+      <Spinner size="small" />
+      <Spinner />
+      <Spinner size="large" />
 
       <div className="flex items-center gap-4 p-10 ">
         <Button
