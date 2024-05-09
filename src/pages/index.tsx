@@ -9,6 +9,13 @@ export default function Home() {
       <Seo title="Coders Baban" description="Coders Baban" />
 
       <div className="flex items-center gap-4 p-10 ">
+        <Button
+          size="small"
+          icon={{ icon: RiAncientGateFill }}
+          iconPosition="left"
+        >
+          Accent
+        </Button>
         <Button size="small">Accent</Button>
         <Button size="small" variant="secondary">
           Secondary

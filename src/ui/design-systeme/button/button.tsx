@@ -1,9 +1,10 @@
+import { IconProps } from "@/types/iconsProps";
 import clsx from "clsx";
 
 interface Props {
   size?: "small" | "medium" | "large";
   variant?: "accent" | "secondary" | "outline" | "disabled" | "ico";
-  icon?: { icon: React.ElementType };
+  icon?: IconProps;
   iconTheme?: "accent" | "secondary" | "gray";
   iconPosition?: "left" | "right";
   disabled?: boolean;
@@ -95,7 +96,11 @@ export const Button = ({
         {icon && variant === "ico" ? (
           <icon.icon size={icoSize} />
         ) : (
-          <>{children}</>
+          <div className={clsx(icon && "flex items-center gap-1")}>
+            {icon && iconPosition === "left" && <icon.icon size={icoSize} />}
+            {children}
+            {icon && iconPosition === "right" && <icon.icon size={icoSize} />}
+          </div>
         )}
       </button>
     </>
