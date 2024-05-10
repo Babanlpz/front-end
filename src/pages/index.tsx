@@ -1,105 +1,66 @@
 import { Seo } from "@/ui/components/seo";
-import { Button } from "@/ui/design-systeme/button/button";
+import { Avatar } from "@/ui/design-systeme/avatar/avatar";
+import { Logo } from "@/ui/design-systeme/logo/logo";
 import { Spinner } from "@/ui/design-systeme/spinner/spinner";
 import { Typography } from "@/ui/design-systeme/typography/typography";
-import { RiAncientGateFill } from "react-icons/ri";
 
 export default function Home() {
   return (
     <>
       <Seo title="Coders Baban" description="Coders Baban" />
 
-      <Spinner size="small" />
-      <Spinner />
-      <Spinner size="large" />
+      {/* Typography */}
+      <div className="space-y-2">-</div>
 
-      <div className="flex items-center gap-4 p-10 ">
-        <Button
-          isLoading
-          size="small"
-          icon={{ icon: RiAncientGateFill }}
-          iconPosition="left"
-        >
-          Accent
-        </Button>
-        <Button isLoading size="small">
-          Accent
-        </Button>
-        <Button isLoading size="small" variant="secondary">
-          Secondary
-        </Button>
-        <Button isLoading size="small" variant="outline">
-          Outline
-        </Button>
-        <Button isLoading size="small" variant="disabled" disabled>
-          Disabled
-        </Button>
-        <Button
-          isLoading
-          size="small"
-          variant="ico"
-          icon={{ icon: RiAncientGateFill }}
-        />
+      <div className="flex items-start gap-7">
+        {/* Spinners */}
+        <div className="space-y-2">
+          <Typography variant="caption2" weight="medium">
+            Spinners
+          </Typography>
+          <div className="flex flex-items-center gap-2 p-5 border border-gray-400 rounded">
+            <Spinner size="small" />
+            <Spinner size="medium" />
+            <Spinner size="large" />
+          </div>
+        </div>
       </div>
 
-      <div className="flex items-center gap-4 p-10 ">
-        <Button
-          size="small"
-          icon={{ icon: RiAncientGateFill }}
-          iconPosition="left"
-        >
-          Accent
-        </Button>
-        <Button size="small">Accent</Button>
-        <Button size="small" variant="secondary">
-          Secondary
-        </Button>
-        <Button size="small" variant="outline">
-          Outline
-        </Button>
-        <Button size="small" variant="disabled" disabled>
-          Disabled
-        </Button>
-        <Button size="small" variant="ico" icon={{ icon: RiAncientGateFill }} />
-      </div>
-      <div className="flex items-center gap-4 p-10 ">
-        <Button>Accent</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="outline">Outline</Button>
-        <Button variant="disabled" disabled>
-          Disabled
-        </Button>
-        <Button variant="ico" icon={{ icon: RiAncientGateFill }} />
-      </div>
-      <div className="flex items-center gap-4 p-10 ">
-        <Button size="large">Accent</Button>
-        <Button size="large" variant="secondary">
-          Secondary
-        </Button>
-        <Button size="large" variant="outline">
-          Outline
-        </Button>
-        <Button size="large" variant="disabled" disabled>
-          Disabled
-        </Button>
-        <Button
-          size="large"
-          variant="ico"
-          icon={{ icon: RiAncientGateFill }}
-          iconTheme="secondary"
-        />
-        <Button
-          size="large"
-          variant="ico"
-          icon={{ icon: RiAncientGateFill }}
-          iconTheme="gray"
-        />
-        <Button size="large" variant="ico" icon={{ icon: RiAncientGateFill }} />
+      {/* Logo */}
+      <div className="space-y-2">
+        <Typography variant="caption2" weight="medium">
+          Logo
+        </Typography>
+        <div className="flex flex-items-center gap-2 p-5 border border-gray-400 rounded">
+          <Logo size="very-small" />
+          <Logo size="small" />
+          <Logo />
+          <Logo size="large" />
+        </div>
       </div>
 
-      <Typography variant="display" component="h1">
-        Coders Baban
-      </Typography>
+      {/* Avatar */}
+      <div className="space-y-2">
+        <Typography variant="caption2" weight="medium">
+          Avatar
+        </Typography>
+        <div className="flex flex-items-center gap-2 p-5 border border-gray-400 rounded">
+          <Avatar
+            size="small"
+            src="./assets/images/avatar2.jpeg"
+            alt="Avatar utilisateur"
+          />
+          <Avatar src="./assets/images/avatar2.jpeg" alt="Avatar utilisateur" />
+          <Avatar
+            size="large"
+            src="./assets/images/avatar2.jpeg"
+            alt="Avatar utilisateur"
+          />
+        </div>
+      </div>
+
+      {/* Buttons */}
+      <div className="space-y-2">-</div>
     </>
   );
 }

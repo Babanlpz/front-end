@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
+  images: {
+    domains: ["images.unsplash.com", "www.freepik.com", "www.unsplash.com"],
+    unoptimized: true,
+  },
   reactStrictMode: true,
 };
 
