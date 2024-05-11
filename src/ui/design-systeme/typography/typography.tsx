@@ -94,6 +94,8 @@ export const Typography = ({
     case "secondary":
       colorStyles = "text-secondary";
       break;
+    default:
+      break;
   }
 
   return (
