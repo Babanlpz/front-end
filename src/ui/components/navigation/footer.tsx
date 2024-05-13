@@ -1,16 +1,17 @@
+import { FooterLinks } from "@/types/app-links";
 import { Typography } from "@/ui/design-systeme/typography/typography";
 import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
 import { Container } from "../container/container";
 import { ActiveLink } from "./active-link";
-import { footerApplicationLinks } from "./app-links";
+import { footerLinks } from "./app-links";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   console.log(uuidv4());
 
-  const footerNavigationList = footerApplicationLinks.map((element) => (
-    <div key={uuidv4()}>{element.label}</div>
+  const footerNavigationList = footerLinks.map((colomnLinks) => (
+    <FooterLink key={uuidv4()} data={colomnLinks} />
   ));
 
   return (
@@ -36,9 +37,7 @@ export const Footer = () => {
               />
             </a>
           </div>
-          <div className="">
-            <FooterLink />
-          </div>
+          <div className="flex gap-7">{footerNavigationList}</div>
         </Container>
         <Container className="pt-9 pb-11 space-y-11">
           <hr className="text-gray-800" />
@@ -52,7 +51,7 @@ export const Footer = () => {
               >
                 Esteban Lopez
               </a>
-              {` - Remote baban SASUS `}
+              {` - Remote baban SASU `}
             </Typography>
             <div className=""></div>
           </div>
@@ -62,8 +61,12 @@ export const Footer = () => {
   );
 };
 
-const FooterLink = () => {
-  const linksList = footerApplicationLinks.map((link) => (
+interface footerLinkProps {
+  data: FooterLinks;
+}
+
+const FooterLink = ({ data }: footerLinkProps) => {
+  const linksList = data.links.map((link) => (
     <div key={uuidv4()}>
       {link.type === "internal" && (
         <ActiveLink href={link.baseUrl}>{link.label}</ActiveLink>
@@ -85,7 +88,7 @@ const FooterLink = () => {
           weight="medium"
           className="pb-5"
         >
-          Titre
+          {data.label}
         </Typography>
         <Typography theme="gray" variant="caption3" className="space-y-4">
           {linksList}

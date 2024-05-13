@@ -23,7 +23,7 @@ export const footerApplicationLinks: AppLinks[] = [
   },
 ];
 
-const footerUsersLinks: AppLinks[] = [
+export const footerUsersLinks: AppLinks[] = [
   {
     label: "Mon espace",
     baseUrl: "/#",
@@ -46,7 +46,7 @@ const footerUsersLinks: AppLinks[] = [
   },
 ];
 
-const footerInformationsLinks: AppLinks[] = [
+export const footerInformationsLinks: AppLinks[] = [
   {
     label: "CGU",
     baseUrl: "/#",
@@ -69,7 +69,7 @@ const footerInformationsLinks: AppLinks[] = [
   },
 ];
 
-const footerSocialNetworksLinks: AppLinks[] = [
+export const footerSocialNetworksLinks: AppLinks[] = [
   {
     label: "Github",
     baseUrl: "https://github.com/Babanlpz",
@@ -84,5 +84,24 @@ const footerSocialNetworksLinks: AppLinks[] = [
     label: "Malt",
     baseUrl: "https://www.malt.fr/profile/estebanlopez6",
     type: "external",
+  },
+];
+
+export const footerLinks = [
+  {
+    label: "App",
+    links: footerApplicationLinks,
+  },
+  {
+    label: "Utilisateurs",
+    links: footerUsersLinks,
+  },
+  {
+    label: "Informations",
+    links: footerInformationsLinks,
+  },
+  {
+    label: "Réseaux",
+    links: footerSocialNetworksLinks,
   },
 ];
