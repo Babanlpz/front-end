@@ -9,12 +9,12 @@ export const footerApplicationLinks: AppLinks[] = [
   {
     label: "Projets",
     baseUrl: "/#",
-    type: "infernal",
+    type: "internal",
   },
   {
     label: "Coders Baban",
     baseUrl: "/#",
-    type: "infernal",
+    type: "internal",
   },
   {
     label: "Informations",

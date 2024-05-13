@@ -17,10 +17,7 @@ export const ActiveLink = ({ href, children }: Props) => {
 
   return (
     <>
-      <Link
-        href={href}
-        className={clsx(isActive && "text-primary font-medium")}
-      >
+      <Link href={href} className={clsx(isActive && "font-medium")}>
         {children}
       </Link>
     </>

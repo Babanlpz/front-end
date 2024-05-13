@@ -88,6 +88,7 @@ export const Typography = ({
       break;
     case "white":
       colorStyles = "text-white";
+      break;
     case "primary":
       colorStyles = "text-primary";
       break;
@@ -104,8 +105,7 @@ export const Typography = ({
         variantStyles,
         colorStyles,
         weight === "medium" && "font-medium",
-        className,
-        "text-8xl"
+        className
       )}
     >
       {children}
