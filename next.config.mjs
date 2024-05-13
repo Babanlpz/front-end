@@ -4,7 +4,7 @@ const nextConfig = {
     domains: ["images.unsplash.com", "www.freepik.com", "www.unsplash.com"],
     unoptimized: true,
   },
-  reactStrictMode: true,
+  reactStrictMode: false,
 };
 
 export default nextConfig;
