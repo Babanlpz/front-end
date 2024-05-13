@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { Container } from "../container/container";
 import { ActiveLink } from "./active-link";
 import { footerLinks } from "./app-links";
+import { LinkTypes } from "@/lib/link-type";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -68,10 +69,10 @@ interface footerLinkProps {
 const FooterLink = ({ data }: footerLinkProps) => {
   const linksList = data.links.map((link) => (
     <div key={uuidv4()}>
-      {link.type === "internal" && (
+      {link.type === LinkTypes.INTERNAL && (
         <ActiveLink href={link.baseUrl}>{link.label}</ActiveLink>
       )}
-      {link.type === "external" && (
+      {link.type === LinkTypes.EXTERNAL && (
         <a href={link.baseUrl} target="_blank">
           {link.label}
         </a>
