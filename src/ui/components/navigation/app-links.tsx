@@ -1,5 +1,6 @@
 import { AppLinks } from "@/types/app-links";
 import { RiGithubFill, RiLinkedinFill, RiSlackFill } from "react-icons/ri";
+import { SiMalt } from "react-icons/si";
 
 const footerApplicationLinks: AppLinks[] = [
   {
@@ -84,10 +85,10 @@ export const footerSocialNetworksLinks: AppLinks[] = [
     icon: RiLinkedinFill,
   },
   {
-    label: "Slack",
+    label: "Malt",
     baseUrl: "https://www.malt.fr/profile/estebanlopez6",
     type: "external",
-    icon: RiSlackFill,
+    icon: SiMalt,
   },
 ];
 

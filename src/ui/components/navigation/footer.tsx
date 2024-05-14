@@ -56,7 +56,7 @@ export const Footer = () => {
               {` - Remote baban SASU `}
             </Typography>
             <div className="">
-              <SocialNetworksButtons className="flex items-center gap-2.5" />
+              <SocialNetworksButtons theme="gray" />
             </div>
           </div>
         </Container>

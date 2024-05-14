@@ -5,18 +5,24 @@ import { v4 as uuidv4 } from "uuid";
 import { footerSocialNetworksLinks } from "./app-links";
 
 interface Props {
+  theme?: "gray" | "accent" | "secondary";
   className?: string;
 }
 
-export const SocialNetworksButtons = ({ className }: Props) => {
+export const SocialNetworksButtons = ({
+  className,
+  theme = "accent",
+}: Props) => {
   const icoList = footerSocialNetworksLinks.map((socialNetwork) => (
     <Button
       key={uuidv4()}
       variant="ico"
-      iconTheme="gray"
+      iconTheme={theme}
       icon={{
         icon: socialNetwork.icon ? socialNetwork.icon : RiFacebookBoxFill,
       }}
+      baseUrl={socialNetwork.baseUrl}
+      linkType={socialNetwork.type}
     />
   ));
 
