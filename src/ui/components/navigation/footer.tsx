@@ -1,3 +1,4 @@
+import { LinkTypes } from "@/lib/link-type";
 import { FooterLinks } from "@/types/app-links";
 import { Typography } from "@/ui/design-systeme/typography/typography";
 import Image from "next/image";
@@ -5,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import { Container } from "../container/container";
 import { ActiveLink } from "./active-link";
 import { footerLinks } from "./app-links";
-import { LinkTypes } from "@/lib/link-type";
+import { SocialNetworksButtons } from "./social-networks-buttons";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -54,7 +55,9 @@ export const Footer = () => {
               </a>
               {` - Remote baban SASU `}
             </Typography>
-            <div className=""></div>
+            <div className="">
+              <SocialNetworksButtons className="flex items-center gap-2.5" />
+            </div>
           </div>
         </Container>
       </div>
