@@ -1,7 +1,9 @@
+import { HeroTopView } from "./components/hero-top/hero-top.view";
+
 export const LandingPageView = () => {
   return (
     <>
-      <div>Hello world</div>
+      <HeroTopView />
     </>
   );
 };
