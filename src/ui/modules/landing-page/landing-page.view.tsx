@@ -1,7 +1,8 @@
-import { FeaturedView } from "./components/featured/featured.view";
-import { HeroTopView } from "./components/hero-top/hero-top.view";
 import { CodersBabanSlackView } from "./components/coders-baban-slack/coders-baban-slack.view";
 import { CurrentCourseCtaView } from "./components/current-course-cta/current-course-cta.view";
+import { FeaturedView } from "./components/featured/featured.view";
+import { HeroTopView } from "./components/hero-top/hero-top.view";
+import { HighlightListView } from "./components/highlight-list/highlight-list.view";
 
 export const LandingPageView = () => {
   return (
@@ -10,6 +11,7 @@ export const LandingPageView = () => {
       <FeaturedView />
       <CodersBabanSlackView />
       <CurrentCourseCtaView />
+      <HighlightListView />
     </>
   );
 };
