@@ -49,7 +49,7 @@ module.exports = {
       "6xl": [
         "55px",
         {
-          lineHeight: "80px",
+          lineHeight: "60px",
           letterSpacing: "-2.5px",
           fontWeight: "500",
         },
