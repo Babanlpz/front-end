@@ -1,6 +1,8 @@
 import { Container } from "@/ui/components/container/container";
+import { Button } from "@/ui/design-systeme/button/button";
 import { Typography } from "@/ui/design-systeme/typography/typography";
 import Image from "next/image";
+import { RiArrowRightLine } from "react-icons/ri";
 import { uuidv4 } from "uuidv7";
 
 interface FeaturesListInterface {
@@ -84,7 +86,32 @@ export const FeaturedView = () => {
           <div className="grid grid-cols-2 col-span-7 gap-7">
             {featuredList}
           </div>
-          <div className="col-span-5"></div>
+          <div className="col-span-5">
+            <div>
+              <Typography variant="h2" component="h2" className="mb-5">
+                L'endroit le plus cool pour devenir développeur
+              </Typography>
+              <Typography
+                variant="body-lg"
+                theme="gray"
+                component="p"
+                className="mb-8"
+              >
+                Du partage, des connexions et des formations notre app gère tout
+                ça pour toi. Rejoins la communauté et grimpes en grade. Let's go
+                !
+              </Typography>
+              <Button
+                variant="secondary"
+                baseUrl="/#"
+                icon={{ icon: RiArrowRightLine }}
+                iconPosition="right"
+              >
+                Commencer
+              </Button>
+            </div>
+            <div></div>
+          </div>
         </Container>
       </div>
     </>
