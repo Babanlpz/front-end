@@ -3,6 +3,7 @@ import { CurrentCourseCtaView } from "./components/current-course-cta/current-co
 import { FeaturedView } from "./components/featured/featured.view";
 import { HeroTopView } from "./components/hero-top/hero-top.view";
 import { HighlightListView } from "./components/highlight-list/highlight-list.view";
+import { CallToActionView } from "@/ui/design-systeme/call-to-action/call-to-action.view";
 
 export const LandingPageView = () => {
   return (
@@ -12,6 +13,7 @@ export const LandingPageView = () => {
       <CodersBabanSlackView />
       <CurrentCourseCtaView />
       <HighlightListView />
+      <CallToActionView />
     </>
   );
 };

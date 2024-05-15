@@ -8,7 +8,7 @@ export const HighlightListView = () => {
   return (
     <>
       <Container className="py-24 space-y-10">
-        <div className="flex justify-center gap-24">
+        <div className="flex justify-center gap-24 mb-16">
           <div className="w-[520px] h-[350px] relative mt-10">
             <Image
               fill
