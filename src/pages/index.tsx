@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <Seo title="Coders Baban" description="Coders Baban" />
 
-      <Layout>
+      <Layout isDisplayBreadcrumbs={false}>
         <LandingPageContainer />
       </Layout>
     </>
