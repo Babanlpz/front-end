@@ -29,7 +29,7 @@ export const CallToActionView = () => {
               height={1410}
               src="./assets/svg/bombers.svg"
               alt="illustration d'une bombe 3d"
-              className="absolute -bottom-[540px] -right-[250px]"
+              className="absolute -bottom-[540px] -right-[450px]"
             />
           </div>
         </Container>
