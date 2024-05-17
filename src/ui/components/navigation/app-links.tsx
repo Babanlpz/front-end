@@ -1,5 +1,5 @@
 import { AppLinks } from "@/types/app-links";
-import { RiGithubFill, RiLinkedinFill, RiSlackFill } from "react-icons/ri";
+import { RiGithubFill, RiLinkedinFill } from "react-icons/ri";
 import { SiMalt } from "react-icons/si";
 
 const footerApplicationLinks: AppLinks[] = [
@@ -33,17 +33,17 @@ const footerUsersLinks: AppLinks[] = [
   },
   {
     label: "Connexion",
-    baseUrl: "/#",
+    baseUrl: "/connexion",
     type: "internal",
   },
   {
     label: "Inscription",
-    baseUrl: "/#",
+    baseUrl: "/connexion/inscription",
     type: "internal",
   },
   {
     label: "Mot de passe oublié",
-    baseUrl: "/#",
+    baseUrl: "/connexion/mot-de-passe-perdu",
     type: "internal",
   },
 ];
