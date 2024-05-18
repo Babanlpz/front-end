@@ -1,4 +1,6 @@
-import { register } from "module";
+// Code: Form input component
+
+import clsx from "clsx";
 
 interface Props {
   isLoading: boolean;
@@ -18,25 +20,25 @@ export const Input = ({
   type = "text",
   register,
   errors,
-  errorMessage,
+  errorMessage = "Ce champ est obligatoire",
   id,
-  required = false,
+  required = true,
   isAutocompleted = false,
 }: Props) => {
   return (
     <>
       <input
-        type="email"
-        placeholder="johndoe@gmail.com"
-        className=""
+        type={type}
+        placeholder={placeholder}
+        className={clsx("w-full")}
         disabled={isLoading}
-        {...register("email", {
+        {...register(id, {
           required: {
-            value: true,
-            message: "Ce champ est obligatoire",
+            value: required,
+            message: errorMessage,
           },
         })}
-        autoComplete="off"
+        autoComplete={isAutocompleted ? "on" : "off"}
       />
     </>
   );
