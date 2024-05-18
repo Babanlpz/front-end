@@ -1,8 +1,8 @@
 import { LinkType, LinkTypes } from "@/lib/link-type";
 import { IconProps } from "@/types/iconsProps";
 import clsx from "clsx";
-import { Spinner } from "../spinner/spinner";
 import Link from "next/link";
+import { Spinner } from "../spinner/spinner";
 
 interface Props {
   size?: "small" | "medium" | "large";
@@ -16,6 +16,8 @@ interface Props {
   baseUrl?: string;
   linkType?: LinkType;
   action?: Function;
+  type?: "button" | "submit" | "reset";
+  fullWith?: boolean;
 }
 
 export const Button = ({
@@ -29,6 +31,8 @@ export const Button = ({
   children,
   baseUrl,
   linkType = "internal",
+  type = "button",
+  fullWith = false,
   action = () => {},
 }: Props) => {
   let variantStyles: string = "",
@@ -131,12 +135,14 @@ export const Button = ({
 
   const buttonElement = (
     <button
-      type="button"
+      type={type}
       className={clsx(
         variantStyles,
         sizeStyles,
         icoSize,
+
         isLoading && "cursor-wait",
+        fullWith && "w-full",
         "relative animate"
       )}
       onClick={handleClick}
