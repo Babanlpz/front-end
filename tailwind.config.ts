@@ -27,6 +27,11 @@ module.exports = {
         800: "#333333",
         DEFAULT: "#1D1D1D",
       },
+      alert: {
+        danger: "#FF4E4E",
+        success: "#90DA11",
+        warning: "#FEB72F",
+      },
     },
 
     fontSize: {

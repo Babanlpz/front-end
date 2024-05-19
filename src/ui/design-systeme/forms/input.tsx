@@ -31,7 +31,10 @@ export const Input = ({
         type={type}
         placeholder={placeholder}
         className={clsx(
-          "w-full p-4 font-light border border-gray-400 rounded focus:outline-none focus:ring-1 focus:ring-primary placeholder-gray-600"
+          errors[id]
+            ? "placeholder-alert-danger text-alert-danger"
+            : "placeholder-gray-600",
+          "w-full p-4 font-light border border-gray-400 rounded focus:outline-none focus:ring-1 focus:ring-primary"
         )}
         disabled={isLoading}
         {...register(id, {
