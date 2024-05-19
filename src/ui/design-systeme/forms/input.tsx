@@ -30,7 +30,9 @@ export const Input = ({
       <input
         type={type}
         placeholder={placeholder}
-        className={clsx("w-full")}
+        className={clsx(
+          "w-full p-4 font-light border border-gray-400 rounded focus:outline-none focus:ring-1 focus:ring-primary placeholder-gray-600"
+        )}
         disabled={isLoading}
         {...register(id, {
           required: {
