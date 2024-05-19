@@ -28,11 +28,12 @@ export const Input = ({
 }: Props) => {
   return (
     <>
-      <div>
+      <div className="space-y-2">
         <input
           type={type}
           placeholder={placeholder}
           className={clsx(
+            isLoading && "cursor-not-allowed",
             errors[id]
               ? "placeholder-alert-danger text-alert-danger"
               : "placeholder-gray-600",
@@ -49,7 +50,6 @@ export const Input = ({
         />
         {errors[id] && (
           <Typography variant="caption4" component="div" theme="danger">
-            <Input />
             {errors[id]?.message}
           </Typography>
         )}

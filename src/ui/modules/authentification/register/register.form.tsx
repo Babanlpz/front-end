@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const RegisterForm = ({ form }: Props) => {
-  const { handleSubmit, register, errors, isLoading, control, onSubmit } = form;
+  const { handleSubmit, register, errors, isLoading, onSubmit } = form;
 
   return (
     <>

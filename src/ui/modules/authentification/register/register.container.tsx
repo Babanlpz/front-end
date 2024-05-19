@@ -1,20 +1,22 @@
-import { RegisterView } from "./register.view";
-import { SubmitHandler, useForm } from "react-hook-form";
 import { RegisterFormFieldsType } from "@/types/forms";
+import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { RegisterView } from "./register.view";
+import { set } from "firebase/database";
 
 export const RegisterContainer = () => {
-  const isLoading = false;
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const {
     handleSubmit,
     register,
     formState: { errors },
-    control,
     setError,
     reset,
   } = useForm<RegisterFormFieldsType>();
 
   const onSubmit: SubmitHandler<RegisterFormFieldsType> = async (formData) => {
+    setIsLoading(true);
     console.log(formData);
   };
 
@@ -25,7 +27,6 @@ export const RegisterContainer = () => {
           handleSubmit,
           register,
           errors,
-          control,
           onSubmit,
           isLoading,
         }}
