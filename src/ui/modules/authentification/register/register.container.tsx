@@ -1,8 +1,8 @@
+import { firebaseCreateUser } from "@/api/authentication";
 import { RegisterFormFieldsType } from "@/types/forms";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { RegisterView } from "./register.view";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export const RegisterContainer = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -19,7 +19,16 @@ export const RegisterContainer = () => {
     email,
     password,
     how_did_hear,
-  }: RegisterFormFieldsType) => {};
+  }: RegisterFormFieldsType) => {
+    const { error, data } = await firebaseCreateUser(email, password);
+    if (error) {
+      setIsLoading(false);
+      console.log(error);
+      return;
+    }
+
+    console.log(data);
+  };
 
   const onSubmit: SubmitHandler<RegisterFormFieldsType> = async (formData) => {
     setIsLoading(true);
@@ -33,6 +42,7 @@ export const RegisterContainer = () => {
       setIsLoading(false);
       return;
     }
+    handleCreateUserAuthentication(formData);
   };
 
   return (
