@@ -2,6 +2,7 @@ import { firebaseCreateUser } from "@/api/authentication";
 import { RegisterFormFieldsType } from "@/types/forms";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { RegisterView } from "./register.view";
 
 export const RegisterContainer = () => {
@@ -23,11 +24,13 @@ export const RegisterContainer = () => {
     const { error, data } = await firebaseCreateUser(email, password);
     if (error) {
       setIsLoading(false);
-      console.log(error);
+      toast.error(error.message);
       return;
     }
 
-    console.log(data);
+    toast.success("Compte créé avec succès !");
+    setIsLoading(false);
+    reset();
   };
 
   const onSubmit: SubmitHandler<RegisterFormFieldsType> = async (formData) => {

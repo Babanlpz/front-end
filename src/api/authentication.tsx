@@ -12,7 +12,7 @@ export const firebaseCreateUser = async (email: string, password: string) => {
     return { data: userCredential.user };
   } catch (error) {
     const firebaseError = error as FirebaseError;
-
+    //... @todo format error
     return {
       error: {
         code: firebaseError.code,
