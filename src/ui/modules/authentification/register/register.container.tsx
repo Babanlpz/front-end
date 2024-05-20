@@ -6,11 +6,7 @@ import { toast } from "react-toastify";
 import { RegisterView } from "./register.view";
 
 export const RegisterContainer = () => {
-  const {
-    value: isLoading,
-    setValue: setIsLoading,
-    toggle,
-  } = useToggle({ initial: true });
+  const { value: isLoading, setValue: setIsLoading, toggle } = useToggle();
 
   const {
     handleSubmit,

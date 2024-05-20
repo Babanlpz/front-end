@@ -1,10 +1,10 @@
+import { FormsType } from "@/types/forms";
 import { Container } from "@/ui/components/container/container";
 import { Box } from "@/ui/design-systeme/box/box";
 import { Typography } from "@/ui/design-systeme/typography/typography";
 import Image from "next/image";
 import Link from "next/link";
 import { RegisterForm } from "./register.form";
-import { FormsType } from "@/types/forms";
 
 interface Props {
   form: FormsType;
@@ -39,6 +39,21 @@ export const RegisterView = ({ form }: Props) => {
             </div>
           </div>
           <RegisterForm form={form} />
+          <Typography
+            variant="caption4"
+            theme="gray"
+            className="max-w-md mx-auto space-y-1 text-center"
+          >
+            <div>En vous inscrivant, vous acceptez les</div>
+            <Link href="/#" className="text-gray">
+              conditions générales d'utilisation
+            </Link>{" "}
+            et la{" "}
+            <Link href="/#" className="text-gray">
+              politique de confidentialité de notre site
+            </Link>
+            .
+          </Typography>
         </Box>
       </div>
     </Container>

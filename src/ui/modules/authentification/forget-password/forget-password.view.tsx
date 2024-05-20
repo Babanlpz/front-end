@@ -32,7 +32,7 @@ export const ForgetPasswordView = ({ form }: Props) => {
               </Typography>
 
               <Typography variant="caption4" component="span" theme="primary">
-                <Link href="./connexion">Connexion</Link>
+                <Link href="/connexion">Connexion</Link>
               </Typography>
             </div>
             <ForgetPasswordForm form={form} />
