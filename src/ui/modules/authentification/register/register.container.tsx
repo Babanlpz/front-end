@@ -1,12 +1,16 @@
 import { firebaseCreateUser } from "@/api/authentication";
+import { useToggle } from "@/hooks/use-toggle";
 import { RegisterFormFieldsType } from "@/types/forms";
-import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { RegisterView } from "./register.view";
 
 export const RegisterContainer = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const {
+    value: isLoading,
+    setValue: setIsLoading,
+    toggle,
+  } = useToggle({ initial: true });
 
   const {
     handleSubmit,
@@ -27,7 +31,7 @@ export const RegisterContainer = () => {
       toast.error(error.message);
       return;
     }
-
+    // @ todo create user document in firestore
     toast.success("Compte créé avec succès !");
     setIsLoading(false);
     reset();
