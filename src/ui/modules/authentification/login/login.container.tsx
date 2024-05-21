@@ -47,7 +47,7 @@ export const LoginContainer = () => {
     toast.success("Connexion réussie sur Coders Baban");
     setIsLoading(false);
     reset();
-    // router.push("/mon-espace");
+    router.push("/mon-espace");
   };
 
   const onSubmit: SubmitHandler<LoginFormFieldsType> = async (formData) => {
