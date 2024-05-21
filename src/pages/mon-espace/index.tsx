@@ -8,7 +8,7 @@ export default function Connexion() {
     <>
       <Seo title="Mon espace" description="Description de la page" />
 
-      <Layout>
+      <Layout withSidebar>
         <UserAccountContainer />
       </Layout>
     </>
