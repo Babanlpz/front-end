@@ -1,5 +1,5 @@
 import { firebaseCreateUser } from "@/api/authentication";
-import { firestoreUpdateDocument } from "@/api/firestore";
+import { firestoreCreateDocument } from "@/api/firestore";
 import { useToggle } from "@/hooks/use-toggle";
 import { RegisterFormFieldsType } from "@/types/forms";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -22,7 +22,7 @@ export const RegisterContainer = () => {
     documentID: string,
     document: object
   ) => {
-    const { error } = await firestoreUpdateDocument(
+    const { error } = await firestoreCreateDocument(
       collectionName,
       documentID,
       document
