@@ -95,5 +95,12 @@ export const sendEmailVerificationProcedure = async () => {
         },
       };
     }
+  } else {
+    return {
+      error: {
+        code: "auth/not-authenticated",
+        message: "Une erreur est survenue, veuillez vous reconnecter.",
+      },
+    };
   }
 };
