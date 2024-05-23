@@ -3,10 +3,13 @@ import { Logo } from "../../design-systeme/logo/logo";
 import { Typography } from "../../design-systeme/typography/typography";
 import { Container } from "../container/container";
 import { ActiveLink } from "../navigation/active-link";
+import { useAuth } from "@/context/AuthUserContext";
 
 interface Props {}
 
 export const Navigation = ({}: Props) => {
+  const { authUser } = useAuth();
+
   return (
     <>
       <div className="border-b-2 border-gray-400">
