@@ -1,4 +1,7 @@
-import { firebaseCreateUser } from "@/api/authentication";
+import {
+  firebaseCreateUser,
+  sendEmailVerificationProcedure,
+} from "@/api/authentication";
 import { firestoreCreateDocument } from "@/api/firestore";
 import { useToggle } from "@/hooks/use-toggle";
 import { RegisterFormFieldsType } from "@/types/forms";
@@ -35,7 +38,7 @@ export const RegisterContainer = () => {
     toast.success("Compte créé avec succès !");
     setIsLoading(false);
     reset();
-    // @ TODO send email confirmation process
+    sendEmailVerificationProcedure();
   };
 
   const handleCreateUserAuthentication = async ({
