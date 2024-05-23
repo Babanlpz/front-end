@@ -8,7 +8,7 @@ import { useAuth } from "@/context/AuthUserContext";
 interface Props {}
 
 export const Navigation = ({}: Props) => {
-  const { authUser } = useAuth();
+  const { authUser, authUserIsLoading } = useAuth();
 
   return (
     <>

@@ -1,4 +1,5 @@
 import { Breadcrumbs } from "@/ui/components/breadcrumbs/breadcrumbs";
+import { Session } from "@/ui/session/session";
 import React from "react";
 import { Container } from "../container/container";
 import { Footer } from "../navigation/footer";
@@ -34,11 +35,11 @@ export const Layout = ({
   }
 
   return (
-    <>
+    <Session>
       <Navigation />
       {isDisplayBreadcrumbs && <Breadcrumbs />}
       {view}
       <Footer />
-    </>
+    </Session>
   );
 };
