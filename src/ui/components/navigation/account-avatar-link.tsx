@@ -6,7 +6,7 @@ import { Avatar } from "../../design-systeme/avatar/avatar";
 export const AccountAvatarNavigationLink = () => {
   const { authUser } = useAuth();
 
-  const { photoURL, displayName } = authUser;
+  const { displayName, photoURL } = authUser;
 
   return (
     <>

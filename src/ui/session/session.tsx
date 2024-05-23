@@ -13,6 +13,34 @@ export const Session = ({ children, sessionStatus }: Props) => {
   const router = useRouter();
   const { authUserIsLoading, authUser } = useAuth();
 
+  const onboardingIsCompleted = authUser?.userDocument?.onboardingIsCompleted;
+
+  const shouldRedirectToOnboarding = () => {
+    return (
+      !authUserIsLoading &&
+      authUser &&
+      !onboardingIsCompleted &&
+      router.asPath !== "/onboarding"
+    );
+  };
+  const shouldNotRedirectToOnboarding = () => {
+    return (
+      !authUserIsLoading &&
+      authUser &&
+      onboardingIsCompleted &&
+      router.asPath == "/onboarding"
+    );
+  };
+
+  if (shouldRedirectToOnboarding()) {
+    router.push("/onboarding");
+    return <ScreenSpinner />;
+  }
+  if (shouldNotRedirectToOnboarding()) {
+    router.push("/mon-espace");
+    return <ScreenSpinner />;
+  }
+
   if (sessionStatus === GUEST && !authUserIsLoading) {
     if (!authUser) {
       return <>{children}</>;

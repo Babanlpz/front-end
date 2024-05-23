@@ -52,7 +52,7 @@ export const Navigation = ({}: Props) => {
               <ActiveLink href="/contact">Contact</ActiveLink>
             </Typography>
 
-            {authUser ? (
+            {!authUser ? (
               authentificationSysteme
             ) : (
               <AccountAvatarNavigationLink />

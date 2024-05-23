@@ -15,4 +15,5 @@ export interface UserDocument {
   uid: string;
   how_did_hear: string;
   creation_date: Timestamp;
+  onboardingIsCompleted: boolean;
 }
