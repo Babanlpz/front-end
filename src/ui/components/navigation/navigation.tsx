@@ -1,14 +1,26 @@
+import { useAuth } from "@/context/AuthUserContext";
 import { Button } from "../../design-systeme/button/button";
 import { Logo } from "../../design-systeme/logo/logo";
 import { Typography } from "../../design-systeme/typography/typography";
 import { Container } from "../container/container";
 import { ActiveLink } from "../navigation/active-link";
-import { useAuth } from "@/context/AuthUserContext";
+import { AccountAvatarNavigationLink } from "./account-avatar-link";
 
 interface Props {}
 
 export const Navigation = ({}: Props) => {
   const { authUser, authUserIsLoading } = useAuth();
+
+  const authentificationSysteme = (
+    <div className="flex items-center gap-2">
+      <Button baseUrl="/connexion" size="small">
+        Connexion
+      </Button>
+      <Button baseUrl="/connexion/inscription" size="small" variant="secondary">
+        Rejoindre
+      </Button>
+    </div>
+  );
 
   return (
     <>
@@ -39,18 +51,12 @@ export const Navigation = ({}: Props) => {
               <ActiveLink href="/formations">Formations</ActiveLink>
               <ActiveLink href="/contact">Contact</ActiveLink>
             </Typography>
-            <div className="flex items-center gap-2">
-              <Button baseUrl="/connexion" size="small">
-                Connexion
-              </Button>
-              <Button
-                baseUrl="/connexion/inscription"
-                size="small"
-                variant="secondary"
-              >
-                Rejoindre
-              </Button>
-            </div>
+
+            {authUser ? (
+              authentificationSysteme
+            ) : (
+              <AccountAvatarNavigationLink />
+            )}
           </div>
         </Container>
       </div>
