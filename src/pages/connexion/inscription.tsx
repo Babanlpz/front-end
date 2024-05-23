@@ -1,4 +1,5 @@
 /** COMPONENTS   */
+import { GUEST } from "@/lib/session-status";
 import { Layout } from "@/ui/components/layout/layout";
 import { Seo } from "@/ui/components/seo/seo";
 import { RegisterContainer } from "@/ui/modules/authentification/register/register.container";
@@ -11,7 +12,7 @@ export default function Register() {
         description="Page d'inscription"
       />
 
-      <Layout>
+      <Layout sessionStatus={GUEST}>
         <RegisterContainer />
       </Layout>
     </>

@@ -1,3 +1,4 @@
+import { SessionStatusTypes } from "@/types/session-status-types";
 import { Breadcrumbs } from "@/ui/components/breadcrumbs/breadcrumbs";
 import { Session } from "@/ui/session/session";
 import React from "react";
@@ -10,12 +11,14 @@ interface Props {
   children: React.ReactNode;
   isDisplayBreadcrumbs?: boolean;
   withSidebar?: boolean;
+  sessionStatus?: SessionStatusTypes;
 }
 
 export const Layout = ({
   children,
   isDisplayBreadcrumbs = true,
   withSidebar,
+  sessionStatus,
 }: Props) => {
   let view: React.ReactElement = <></>;
 
@@ -35,7 +38,7 @@ export const Layout = ({
   }
 
   return (
-    <Session>
+    <Session sessionStatus={sessionStatus}>
       <Navigation />
       {isDisplayBreadcrumbs && <Breadcrumbs />}
       {view}

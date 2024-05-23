@@ -1,4 +1,5 @@
 /** COMPONENTS   */
+import { GUEST } from "@/lib/session-status";
 import { Layout } from "@/ui/components/layout/layout";
 import { Seo } from "@/ui/components/seo/seo";
 import { ForgetPasswordContainer } from "@/ui/modules/authentification/forget-password/forget-password.container";
@@ -8,7 +9,7 @@ export default function ForgetPassword() {
     <>
       <Seo title="Connexion sur Coders Baban" description="Page de connexion" />
 
-      <Layout>
+      <Layout sessionStatus={GUEST}>
         <ForgetPasswordContainer />
       </Layout>
     </>
