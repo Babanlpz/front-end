@@ -1,4 +1,5 @@
 import { Button } from "@/ui/design-systeme/button/button";
+import clsx from "clsx";
 
 interface Props {
   next?: () => void;
@@ -28,7 +29,14 @@ export const OnboardingFooter = ({
   return (
     <>
       <div className="absolute bottom-0 left-0 w-full p-5 bg-white border-t border-gray-400">
-        <div className="flex items-center justify-end gap-5">
+        <div
+          className={clsx(
+            prev && !next && "justify-start",
+            !prev && next && "justify-end",
+            prev && next && "justify-between",
+            "flex items-center gap-5"
+          )}
+        >
           {prev && (
             <Button
               disabled={isLoading}
