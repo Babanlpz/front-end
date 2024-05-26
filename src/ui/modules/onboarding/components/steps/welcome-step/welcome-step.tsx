@@ -1,12 +1,20 @@
 import { BaseCompponentProps } from "@/types/onboarding-steps-list";
-import { Button } from "@/ui/design-systeme/button/button";
+import { OnboardingFooter } from "../../footer/onboarding-footer";
 
-export const WelcomeStep = ({ next }: BaseCompponentProps) => {
+export const WelcomeStep = ({
+  next,
+  isFirstStep,
+  isFinalStep,
+}: BaseCompponentProps) => {
   return (
     <>
-      <div>
+      <div className="relative h-screen">
         Welcome Step component
-        <Button action={next}>Next</Button>
+        <OnboardingFooter
+          next={next}
+          isFirstStep={isFirstStep}
+          isFinalStep={isFinalStep}
+        />
       </div>
     </>
   );
