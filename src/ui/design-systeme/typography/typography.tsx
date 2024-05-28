@@ -20,6 +20,7 @@ interface Props {
   theme?:
     | "black"
     | "gray"
+    | "gray-600"
     | "white"
     | "primary"
     | "secondary"
@@ -93,6 +94,9 @@ export const Typography = ({
       break;
     case "gray":
       colorStyles = "text-gray-700";
+      break;
+    case "gray-600":
+      colorStyles = "text-gray-600";
       break;
     case "white":
       colorStyles = "text-white";
