@@ -48,7 +48,7 @@ export const Textarea = ({
             errors[id]
               ? "placeholder-alert-danger text-alert-danger"
               : "placeholder-gray-600",
-            "w-full p-4 font-light border  rounded focus:ring-1 focus:ring-primary border-gray-400"
+            "w-full p-4 font-light border rounded focus:outline-none focus:ring-1 focus:ring-primary border-gray-400"
           )}
           disabled={isLoading}
           {...register(id, {

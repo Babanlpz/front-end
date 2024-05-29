@@ -1,5 +1,6 @@
 import { FormsType } from "@/types/forms";
 import { Input } from "@/ui/design-systeme/forms/input";
+import { Textarea } from "@/ui/design-systeme/forms/textarea";
 
 interface Props {
   form: FormsType;
@@ -29,6 +30,17 @@ export const ProfileStepForm = ({ form }: Props) => {
           errors={errors}
           errorMessage="Tu dois renseigner ton expertise"
           id="expertise"
+        />
+        <Textarea
+          label="Biographie"
+          isLoading={isLoading}
+          placeholder="Indique nous en quelques mots qui tu es et ce que tu fais..."
+          rows={5}
+          register={register}
+          errors={errors}
+          errorMessage="Tu dois renseigner ce champ"
+          id="biography"
+          required={false}
         />
       </form>
     </>

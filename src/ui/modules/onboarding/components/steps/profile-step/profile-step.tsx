@@ -1,9 +1,13 @@
+import { firestoreUpdateDocument } from "@/api/firestore";
+import { useAuth } from "@/context/AuthUserContext";
 import { useToggle } from "@/hooks/use-toggle";
 import { OnboardingProfileFormFieldsType } from "@/types/forms";
 import { BaseCompponentProps } from "@/types/onboarding-steps-list";
 import { Container } from "@/ui/components/container/container";
 import { Typography } from "@/ui/design-systeme/typography/typography";
+import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { OnboardingFooter } from "../../footer/onboarding-footer";
 import { OnboardingTabs } from "../../tabs/onboarding-tabs.tsx";
 import { ProfileStepForm } from "./profile-step-form";
@@ -16,6 +20,7 @@ export const ProfileStep = ({
   stepList,
   getCurrentStep,
 }: BaseCompponentProps) => {
+  const { authUser } = useAuth();
   const { value: isLoading, setValue: setLoading } = useToggle();
   const {
     handleSubmit,
@@ -26,12 +31,52 @@ export const ProfileStep = ({
     setValue,
   } = useForm<OnboardingProfileFormFieldsType>();
 
+  const { displayName, expertise, biography } = authUser.userDocument;
+
+  // Display value is exist
+  useEffect(() => {
+    const fieldsToUpdate: ("displayName" | "expertise" | "biography")[] = [
+      "displayName",
+      "expertise",
+      "biography",
+    ];
+
+    for (const field of fieldsToUpdate) {
+      setValue(field, authUser.userDocument[field]);
+    }
+  }, []);
+
+  const handleUpdateUserDocument = async (
+    formData: OnboardingProfileFormFieldsType
+  ) => {
+    const { error } = await firestoreUpdateDocument(
+      "users",
+      authUser.uid,
+      formData
+    );
+    if (error) {
+      setLoading(false);
+      toast.error(error.message);
+      return;
+    }
+    setLoading(false);
+    reset();
+    next();
+  };
+
   const onSubmit: SubmitHandler<OnboardingProfileFormFieldsType> = async (
     formData
   ) => {
     setLoading(true);
 
-    //.....
+    if (
+      displayName !== formData.displayName ||
+      expertise !== formData.expertise ||
+      biography !== formData.biography
+    ) {
+      handleUpdateUserDocument(formData);
+    }
+    setLoading(false);
     next();
   };
 
@@ -76,9 +121,10 @@ export const ProfileStep = ({
         </div>{" "}
         <OnboardingFooter
           prev={prev}
-          next={next}
+          next={handleSubmit(onSubmit)}
           isFirstStep={isFirstStep}
           isFinalStep={isFinalStep}
+          isLoading={isLoading}
         />
       </div>
     </>
