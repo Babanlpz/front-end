@@ -19,3 +19,9 @@ export interface LoginFormFieldsType {
 export interface ForgetPasswordFormFieldsType {
   email: string;
 }
+
+export interface OnboardingProfileFormFieldsType {
+  displayName: string;
+  expertise: string;
+  biography: string;
+}

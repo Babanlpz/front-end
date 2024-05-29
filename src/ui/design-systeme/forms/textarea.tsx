@@ -1,12 +1,10 @@
-// Code: Form input component
-
 import clsx from "clsx";
 import { Typography } from "../typography/typography";
 
 interface Props {
   isLoading: boolean;
   placeholder: string;
-  type?: "text" | "email" | "password";
+  rows?: number;
   register: any;
   errors: any;
   errorMessage?: string;
@@ -16,10 +14,10 @@ interface Props {
   label?: string;
 }
 
-export const Input = ({
+export const Textarea = ({
   isLoading,
   placeholder,
-  type = "text",
+  rows = 5,
   register,
   errors,
   errorMessage = "Ce champ est obligatoire",
@@ -40,15 +38,17 @@ export const Input = ({
             {label}
           </Typography>
         )}
-        <input
-          type={type}
+        <textarea
+          rows={rows}
           placeholder={placeholder}
           className={clsx(
-            isLoading && "cursor-not-allowed",
+            isLoading
+              ? "bg-gray-300 focus:ring-gray-300 cursor-not-allowed"
+              : "bg-white",
             errors[id]
               ? "placeholder-alert-danger text-alert-danger"
               : "placeholder-gray-600",
-            "w-full p-4 font-light border border-gray-400 rounded focus:outline-none focus:ring-1 focus:ring-primary"
+            "w-full p-4 font-light border  rounded focus:ring-1 focus:ring-primary border-gray-400"
           )}
           disabled={isLoading}
           {...register(id, {
