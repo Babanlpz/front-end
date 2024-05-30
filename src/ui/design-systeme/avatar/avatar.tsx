@@ -2,7 +2,7 @@ import clsx from "clsx";
 import Image from "next/image";
 
 interface Props {
-  size?: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large" | "xlarge";
   src: string;
   alt: string;
 }
@@ -19,6 +19,9 @@ export const Avatar = ({ size = "medium", src, alt }: Props) => {
       break;
     case "large":
       sizeStyles = "w-[50px] h-[50px]";
+      break;
+    case "xlarge":
+      sizeStyles = "w-[130px] h-[130px]";
       break;
   }
 

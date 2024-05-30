@@ -1,5 +1,6 @@
 import { onboardingStepsListInterface } from "@/types/onboarding-steps-list";
 import { useState } from "react";
+import { AvatarStep } from "./components/steps/avatar-step/avatar-step";
 import { ProfileStep } from "./components/steps/profile-step/profile-step";
 import { WelcomeStep } from "./components/steps/welcome-step/welcome-step";
 import { OnboardingView } from "./onboarding.view";
@@ -20,7 +21,7 @@ export const OnboardingContainer = () => {
     {
       id: 3,
       label: "Avatar",
-      component: { step: WelcomeStep },
+      component: { step: AvatarStep },
     },
   ];
 

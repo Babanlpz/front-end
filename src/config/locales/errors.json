@@ -1,0 +1,23 @@
+{
+  "an_unknow_error_has_occured": "Une erreur inconnue est survenue veuillez réessayer, contactez le support si le problème persiste.",
+
+  "firestore": {
+    "permission_denied": "Vous n'avez pas la permission d'accéder à cette ressource."
+  },
+  "createUserWithEmailAndPassword": {
+    "auth/email-already-in-use": "L'adresse email est déjà utilisée par un autre compte.",
+    "auth/invalid-email": "Cette adresse email est invalide.",
+    "auth/operation-not-allowed": "La création de compte n'est pas autorisée.",
+    "auth/weak-password": "Le mot de passe est trop faible, il doit comporter au moins 6 caractères."
+  },
+  "signInWithEmailAndPassword": {
+    "auth/invalid-email": "Cette adresse email est invalide.",
+    "auth/user-disabled": "Ce compte a été désactivé.",
+    "auth/user-not-found": "Aucun compte n'est associé à cette adresse email.",
+    "auth/wrong-password": "Le mot de passe est incorrect."
+  },
+  "signOut": {
+    "auth/invalid-user-token": "Une erreur critique est survenue code: signOut auth/invalid-user-token.",
+    "auth/user-token-expired": "Une erreur critique est survenue code: signOut auth/user-token-expired."
+  }
+}
