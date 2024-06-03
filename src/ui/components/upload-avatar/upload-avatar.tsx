@@ -5,8 +5,8 @@ import { RiCamera2Fill } from "react-icons/ri";
 interface Props {
   handleImageSelect: (e: React.ChangeEvent<HTMLInputElement>) => void;
   imagePreview: string | ArrayBuffer | null;
-  uploadProgress?: number;
-  isLoading?: boolean;
+  uploadProgress: number;
+  isLoading: boolean;
 }
 
 export const UploadAvatar = ({
@@ -15,9 +15,18 @@ export const UploadAvatar = ({
   uploadProgress,
   isLoading,
 }: Props) => {
+  const uploadProgressStyle = `fixed top-0 left-0 w-full h-1 bg-secondary animate ${
+    uploadProgress > 0 ? "" : "hidden"
+  }`;
+
   return (
     <>
       <div className="flex items-center gap-5">
+        <div
+          className={uploadProgressStyle}
+          style={{ width: `${uploadProgress}%` }}
+        />
+
         <label
           className={clsx(
             isLoading ? "cursor-not-allowed" : "cursor-pointer",
