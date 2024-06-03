@@ -100,7 +100,7 @@ export const AvatarStep = ({
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            // console.log(":: downloadURL ::", downloadURL);
+            updateUserDocument(downloadURL);
           });
         }
       );
@@ -134,6 +134,8 @@ export const AvatarStep = ({
                 <UploadAvatar
                   handleImageSelect={handleImageSelect}
                   imagePreview={imagePreview}
+                  uploadProgress={uploadProgress}
+                  isLoading={isLoading}
                 />
               </div>
             </div>
