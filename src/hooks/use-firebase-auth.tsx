@@ -8,6 +8,15 @@ export default function useFirebaseAuth() {
   const [authUser, setAuthUser] = useState<UserInterface | null>(null);
   const [authUserIsLoading, setAuthUserIsLoading] = useState<boolean>(true);
 
+  // Reload authUserData function
+  const reloadAuthUserData = () => {
+    if (auth.currentUser) {
+      auth.currentUser.reload().then(() => {
+        authStateChanged(auth.currentUser);
+      });
+    }
+  };
+
   const formatAuthUser = (user: UserInterface) => ({
     uid: user.uid,
     email: user.email,
@@ -51,5 +60,5 @@ export default function useFirebaseAuth() {
     return () => unsubscribe();
   }, []);
 
-  return { authUser, authUserIsLoading };
+  return { authUser, authUserIsLoading, reloadAuthUserData };
 }

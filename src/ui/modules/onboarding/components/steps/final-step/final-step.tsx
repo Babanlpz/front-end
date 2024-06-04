@@ -1,3 +1,4 @@
+import { firestoreUpdateDocument } from "@/api/firestore";
 import { useAuth } from "@/context/AuthUserContext";
 import { useToggle } from "@/hooks/use-toggle";
 import { BaseCompponentProps } from "@/types/onboarding-steps-list";
@@ -6,6 +7,7 @@ import { Logo } from "@/ui/design-systeme/logo/logo";
 import { Typography } from "@/ui/design-systeme/typography/typography";
 import { useCallback, useEffect, useRef } from "react";
 import ReactCanvasConfetti from "react-canvas-confetti";
+import { toast } from "react-toastify";
 import { OnboardingFooter } from "../../footer/onboarding-footer";
 
 export const FinalStep = ({ isFinalStep }: BaseCompponentProps) => {
@@ -39,7 +41,19 @@ export const FinalStep = ({ isFinalStep }: BaseCompponentProps) => {
     }, 50);
   }, []);
 
-  const handleCloseOnboarding = async () => {};
+  const handleCloseOnboarding = async () => {
+    toggle();
+    const { error } = await firestoreUpdateDocument("users", authUser.uid, {
+      onboardingIsCompleted: true,
+    });
+    if (error) {
+      toggle();
+      toast.error("Une erreur est survenue, veuillez réessayer plus tard");
+      return;
+    }
+    toggle();
+    toast.success("Ton onboarding est terminé, bienvenue dans la communauté !");
+  };
 
   return (
     <>
