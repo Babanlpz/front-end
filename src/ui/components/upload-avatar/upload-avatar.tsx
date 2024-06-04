@@ -1,3 +1,4 @@
+import { useAuth } from "@/context/AuthUserContext";
 import { Avatar } from "@/ui/design-systeme/avatar/avatar";
 import clsx from "clsx";
 import { RiCamera2Fill } from "react-icons/ri";
@@ -15,6 +16,8 @@ export const UploadAvatar = ({
   uploadProgress,
   isLoading,
 }: Props) => {
+  const { authUser } = useAuth();
+
   const uploadProgressStyle = `fixed top-0 left-0 w-full h-1 bg-secondary animate ${
     uploadProgress > 0 ? "" : "hidden"
   }`;
@@ -53,6 +56,8 @@ export const UploadAvatar = ({
               ? typeof imagePreview === "string"
                 ? imagePreview
                 : String(imagePreview)
+              : authUser.userDocument.photoURL
+              ? authUser.userDocument.photoURL
               : "/assets/images/camera.webp"
           }
         />

@@ -5,6 +5,7 @@ export interface BaseCompponentProps {
   isFinalStep: () => boolean;
   stepList: onboardingStepsListInterface[];
   getCurrentStep: () => onboardingStepsListInterface | undefined;
+
 }
 
 export interface onboardingStepsListInterface {
@@ -12,5 +13,6 @@ export interface onboardingStepsListInterface {
   label: string;
   component: {
     step: React.ComponentType<BaseCompponentProps>;
+
   };
 }
