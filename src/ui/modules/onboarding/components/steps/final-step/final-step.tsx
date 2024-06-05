@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import { OnboardingFooter } from "../../footer/onboarding-footer";
 
 export const FinalStep = ({ isFinalStep }: BaseCompponentProps) => {
-  const { authUser } = useAuth();
+  const { authUser, reloadAuthUserData } = useAuth();
   const { value: isLoading, toggle } = useToggle();
 
   // Setting confetti animation
@@ -43,16 +43,21 @@ export const FinalStep = ({ isFinalStep }: BaseCompponentProps) => {
 
   const handleCloseOnboarding = async () => {
     toggle();
-    const { error } = await firestoreUpdateDocument("users", authUser.uid, {
-      onboardingIsCompleted: true,
-    });
+    const data = {
+      onboadingIsCompleted: true,
+    };
+    const { error } = await firestoreUpdateDocument(
+      "users",
+      authUser.uid,
+      data
+    );
     if (error) {
       toggle();
       toast.error("Une erreur est survenue, veuillez réessayer plus tard");
       return;
     }
+    reloadAuthUserData();
     toggle();
-    toast.success("Ton onboarding est terminé, bienvenue dans la communauté !");
   };
 
   return (
