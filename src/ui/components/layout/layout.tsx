@@ -3,6 +3,7 @@ import { Breadcrumbs } from "@/ui/components/breadcrumbs/breadcrumbs";
 import { Session } from "@/ui/session/session";
 import React from "react";
 import { CallsToActionSideBarContribution } from "../calls-to-action/calls-to-action-side-bar-contribution";
+import { CallsToActionSideBarLinkedin } from "../calls-to-action/calls-to-action-side-bar-linkedin";
 import { Container } from "../container/container";
 import { Footer } from "../navigation/footer";
 import { Navigation } from "../navigation/navigation";
@@ -30,6 +31,7 @@ export const Layout = ({
           <div className="col-span-3 space-y-8">
             <UserAccountNavigation />
             <CallsToActionSideBarContribution />
+            <CallsToActionSideBarLinkedin />
           </div>
           <div className="col-span-9">{children}</div>
         </div>
