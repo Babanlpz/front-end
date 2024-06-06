@@ -1,8 +1,7 @@
 import { useAuth } from "@/context/AuthUserContext";
 
-export const UserAccountContainer = () => {
+export const ProfileContainer = () => {
   const { authUser } = useAuth();
-
 
   return (
     <>

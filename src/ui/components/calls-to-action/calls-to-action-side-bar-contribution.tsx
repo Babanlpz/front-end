@@ -14,7 +14,7 @@ export const CallsToActionSideBarContribution = () => {
         >
           Récompense mes efforts
         </Typography>
-        <div className="flex justify-center">
+        <div className="flex justify-center cursor-pointer">
           <Button
             variant="success"
             baseUrl="https://google.com"
@@ -28,7 +28,7 @@ export const CallsToActionSideBarContribution = () => {
           height={200}
           src="/assets/images/pig.webp"
           alt="Donnation pig"
-          className="absolute -bottom-20 transform -translate-x-1/2 left-1/2 rotate-45"
+          className="absolute -bottom-24 transform -translate-x-1/2 left-1/2 rotate-45"
         />
       </div>
     </>
