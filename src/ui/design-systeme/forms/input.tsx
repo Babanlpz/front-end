@@ -6,7 +6,7 @@ import { Typography } from "../typography/typography";
 interface Props {
   isLoading: boolean;
   placeholder: string;
-  type?: "text" | "email" | "password";
+  type?: "text" | "email" | "password" | "url";
   register: any;
   errors: any;
   errorMessage?: string;
@@ -40,25 +40,34 @@ export const Input = ({
             {label}
           </Typography>
         )}
-        <input
-          type={type}
-          placeholder={placeholder}
-          className={clsx(
-            isLoading && "cursor-not-allowed",
-            errors[id]
-              ? "placeholder-alert-danger text-alert-danger"
-              : "placeholder-gray-600",
-            "w-full p-4 font-light border border-gray-400 rounded focus:outline-none focus:ring-1 focus:ring-primary"
+
+        <div className="flex items-center">
+          {type === "url" && (
+            <div className="p-4 text-gray-600 border-l border-gray-400 rounded-l bg-gray-500/40 border-y">
+              https://
+            </div>
           )}
-          disabled={isLoading}
-          {...register(id, {
-            required: {
-              value: required,
-              message: errorMessage,
-            },
-          })}
-          autoComplete={isAutocompleted ? "on" : "off"}
-        />
+          <input
+            type={type}
+            placeholder={placeholder}
+            className={clsx(
+              type === "url" ? "rounded-r" : "rounded",
+              isLoading && "cursor-not-allowed",
+              errors[id]
+                ? "placeholder-alert-danger text-alert-danger"
+                : "placeholder-gray-600",
+              "w-full p-4 font-light border border-gray-400 focus:outline-none focus:ring-1 focus:ring-primary"
+            )}
+            disabled={isLoading}
+            {...register(id, {
+              required: {
+                value: required,
+                message: errorMessage,
+              },
+            })}
+            autoComplete={isAutocompleted ? "on" : "off"}
+          />
+        </div>
         {errors[id] && (
           <Typography variant="caption4" component="div" theme="danger">
             {errors[id]?.message}
