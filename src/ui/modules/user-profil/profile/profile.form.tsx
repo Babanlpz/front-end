@@ -1,6 +1,7 @@
 import { FormsType } from "@/types/forms";
 import { Button } from "@/ui/design-systeme/button/button";
 import { Input } from "@/ui/design-systeme/forms/input";
+import { Textarea } from "@/ui/design-systeme/forms/textarea";
 
 interface Props {
   form: FormsType;
@@ -11,7 +12,7 @@ export const ProfileForm = ({ form }: Props) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-4">
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-6 space-y-4">
             <Input
@@ -60,6 +61,18 @@ export const ProfileForm = ({ form }: Props) => {
             />
           </div>
         </div>
+
+        <Textarea
+          label="Biographie"
+          rows={9}
+          isLoading={isLoading}
+          placeholder="Indiquez votre biographie ici..."
+          register={register}
+          errors={errors}
+          errorMessage="Tu dois renseigner ta biographie"
+          id="biography"
+          required={false}
+        />
 
         <div className="flex justify-end">
           <Button isLoading={isLoading} type="submit">
