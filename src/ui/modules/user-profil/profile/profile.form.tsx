@@ -1,4 +1,5 @@
 import { FormsType } from "@/types/forms";
+import { UploadAvatar } from "@/ui/components/upload-avatar/upload-avatar";
 import { Button } from "@/ui/design-systeme/button/button";
 import { Input } from "@/ui/design-systeme/forms/input";
 import { Textarea } from "@/ui/design-systeme/forms/textarea";
@@ -15,7 +16,14 @@ export const ProfileForm = ({ form }: Props) => {
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-4">
         <div className="flex items-center justify-between py-5">
-          <div>{/* <UploadAvatar /> */}</div>
+          <div>
+            <UploadAvatar
+              handleImageSelect={handleImageSelect}
+              imagePreview={imagePreview}
+              uploadProgress={uploadProgress}
+              isLoading={isLoading}
+            />
+          </div>
           <div className="flex items-end gap-1">
             <Typography variant="h1" component="div">
               345
