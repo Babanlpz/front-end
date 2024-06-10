@@ -2,6 +2,7 @@ import { FormsType } from "@/types/forms";
 import { Button } from "@/ui/design-systeme/button/button";
 import { Input } from "@/ui/design-systeme/forms/input";
 import { Textarea } from "@/ui/design-systeme/forms/textarea";
+import { Typography } from "@/ui/design-systeme/typography/typography";
 
 interface Props {
   form: FormsType;
@@ -13,6 +14,23 @@ export const ProfileForm = ({ form }: Props) => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-4">
+        <div className="flex items-center justify-between py-5">
+          <div>{/* <UploadAvatar /> */}</div>
+          <div className="flex items-end gap-1">
+            <Typography variant="h1" component="div">
+              345
+            </Typography>
+            <Typography
+              variant="caption4"
+              component="div"
+              theme="gray-600"
+              className="mb-4"
+            >
+              Abonnés
+            </Typography>
+          </div>
+        </div>
+
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-6 space-y-4">
             <Input
