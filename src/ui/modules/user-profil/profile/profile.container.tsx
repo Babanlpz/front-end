@@ -53,6 +53,7 @@ export const ProfileContainer = () => {
       return;
     }
     toast.success("Profil mis à jour avec succès");
+    setLoading(false);
   };
 
   const onSubmit: SubmitHandler<UserProfileFormFieldsType> = async (
