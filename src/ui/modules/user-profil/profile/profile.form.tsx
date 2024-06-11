@@ -30,6 +30,7 @@ export const ProfileForm = ({
               imagePreview={imagePreview}
               uploadProgress={uploadProgress}
               isLoading={isLoading}
+              variant="outline"
             />
           </div>
           <div className="flex items-end gap-1">
