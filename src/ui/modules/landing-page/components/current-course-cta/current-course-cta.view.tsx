@@ -37,7 +37,7 @@ export const CurrentCourseCtaView = () => {
               </div>
               <Image
                 fill
-                src="./assets/images/xxx.jpeg"
+                src="./assets/images/formation.jpeg"
                 alt=""
                 className="object-cover object-center rounded"
               />
