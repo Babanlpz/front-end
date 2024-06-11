@@ -94,14 +94,14 @@ export const ProfileContainer = () => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            // updateUserDocument(downloadURL);
+            updateUserAvatar(downloadURL);
           });
         }
       );
     }
   };
 
-  const handleUserAvatar = async (photoURL: string) => {
+  const updateUserAvatar = async (photoURL: string) => {
     const body = {
       photoURL: photoURL,
     };
@@ -144,6 +144,10 @@ export const ProfileContainer = () => {
   const onSubmit: SubmitHandler<UserProfileFormFieldsType> = async (
     formData
   ) => {
+    if (selectedImage) {
+      handleUploadImage();
+    }
+
     if (formData.linkedin && !formData.linkedin.includes("linkedin.com/")) {
       setError("linkedin", {
         type: "manual",
@@ -166,6 +170,24 @@ export const ProfileContainer = () => {
       linkedin !== formData.linkedin ||
       github !== formData.github
     ) {
+      if (
+        displayName !== formData.displayName ||
+        authUser.displayName !== formData.displayName
+      ) {
+        const body = {
+          displayName: formData.displayName,
+        };
+        const { error } = await updateUserIdentificationData(
+          authUser.uid,
+          body
+        );
+        if (error) {
+          setLoading(false);
+          toast.error("Une erreur est survenue, veuillez réessayer");
+          return;
+        }
+      }
+
       for (const key in formData) {
         if (
           formData.hasOwnProperty(key) &&
@@ -183,6 +205,9 @@ export const ProfileContainer = () => {
   return (
     <>
       <ProfileView
+        imagePreview={imagePreview}
+        handleImageSelect={handleImageSelect}
+        uploadProgress={uploadProgress}
         form={{
           errors,
           control,

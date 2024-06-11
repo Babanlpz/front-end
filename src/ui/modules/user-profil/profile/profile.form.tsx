@@ -7,9 +7,17 @@ import { Typography } from "@/ui/design-systeme/typography/typography";
 
 interface Props {
   form: FormsType;
+  imagePreview: string | ArrayBuffer | null;
+  uploadProgress: number;
+  handleImageSelect: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const ProfileForm = ({ form }: Props) => {
+export const ProfileForm = ({
+  form,
+  imagePreview,
+  uploadProgress,
+  handleImageSelect,
+}: Props) => {
   const { handleSubmit, register, onSubmit, errors, isLoading } = form;
 
   return (
