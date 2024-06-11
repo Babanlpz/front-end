@@ -17,7 +17,7 @@ import { toast } from "react-toastify";
 import { ProfileView } from "./profile.view";
 
 export const ProfileContainer = () => {
-  const { authUser } = useAuth();
+  const { authUser, reloadAuthUserData } = useAuth();
   const { value: isLoading, setValue: setLoading } = useToggle();
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | ArrayBuffer | null>(
@@ -88,13 +88,17 @@ export const ProfileContainer = () => {
           setUploadProgress(progress);
         },
         (error) => {
-          console.error(error);
           setLoading(false);
           toast.error("Une erreur est survenue lors de l'envoi de l'image");
+          setUploadProgress(0);
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             updateUserAvatar(downloadURL);
+            setSelectedImage(null);
+            setTimeout(() => {
+              setUploadProgress(0);
+            }, 1000);
           });
         }
       );
@@ -118,6 +122,7 @@ export const ProfileContainer = () => {
       );
       return;
     }
+    reloadAuthUserData();
     setLoading(false);
   };
 
